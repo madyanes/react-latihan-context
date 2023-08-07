@@ -19,6 +19,21 @@ import './styles/style.css';
  */
 
 function App() {
+  const [locale, setLocale] = React.useState('id')
+
+  const toggleLocale = () => {
+    setLocale((prevLocale) => {
+      return prevLocale === 'id' ? 'en' : 'id'
+    })
+  }
+
+  const localeContextValue = React.useMemo(() => {
+    return {
+      locale,
+      toggleLocale,
+    }
+  }, [locale])
+
   return (
     <>
       <header>
